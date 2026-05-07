@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gifts Shop 2026</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container header-flex">
+            <h1>Gifts Shop 2026</h1>
+            <div class="cart-wrapper">
+                <button class="cart-toggle" onclick="toggleCartDisplay()">🛒 Корзина (<span id="cart-count">0</span>)</button>
+                <div id="cart-dropdown" class="cart-dropdown">
+                    <h3>Ваша корзина</h3>
+                    <div id="cart-items-list">
+                        <p class="empty-msg">Корзина пуста</p>
+                    </div>
+                    <div class="cart-footer">
+                        <p>Итого: <span id="cart-total">0</span> ₽</p>
+                        <button class="btn blue-btn">Оформить заказ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container main-layout">
+        <aside class="sidebar">
+            <h3>Фильтр категорий</h3>
+            <div class="category-list-vertical" id="category-bar">
+                </div>
+            <button class="btn outline-btn" style="margin-top: 15px; font-size: 12px;" onclick="resetFilters()">Сбросить всё</button>
+        </aside>
+
+        <section class="product-grid" id="product-list">
+            </section>
+    </main>
+
+    <div id="photo-modal" class="modal" onclick="closeModal()">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="full-img">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
