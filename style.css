@@ -13,9 +13,17 @@ body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--white);
 .cart-toggle { background: var(--primary-blue); color: white; border: none; padding: 10px 20px; border-radius: 25px; cursor: pointer; font-weight: bold; }
 
 .cart-dropdown { 
-    display: none; position: absolute; right: 0; top: 55px; width: 350px; 
-    background: white; border: 1px solid var(--border); border-radius: 12px; 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15); padding: 15px; z-index: 1000; 
+    display: none; 
+    position: absolute; 
+    right: 0; 
+    top: 60px; 
+    width: 320px; 
+    background: white; 
+    border: 1px solid var(--border); 
+    border-radius: 12px; 
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2); 
+    padding: 15px; 
+    z-index: 1000; 
 }
 .cart-dropdown.active { display: block; }
 
@@ -55,7 +63,55 @@ body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--white);
 .modal-content { max-width: 90%; max-height: 90%; border-radius: 10px; }
 .close { position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; cursor: pointer; }
 
+/* Мобильная адаптация */
 @media (max-width: 768px) {
-    .main-layout { flex-direction: column; }
-    .sidebar { width: 100%; min-width: 100%; position: relative; top: 0; max-height: none; }
+    .header-flex h1 { font-size: 20px; }
+    
+    .main-layout { 
+        flex-direction: column; 
+        padding: 10px; 
+        gap: 15px;
+    }
+
+    .sidebar { 
+        width: 100%; 
+        min-width: 100%; 
+        position: static; 
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    /* Делаем категории компактным горизонтальным списком */
+    .category-list-vertical {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        gap: 8px;
+        padding-bottom: 10px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .category-item {
+        flex: 0 0 auto; /* Не дает кнопкам сжиматься */
+        margin-bottom: 0;
+        white-space: nowrap;
+        padding: 6px 12px;
+    }
+
+    .cart-dropdown {
+        position: fixed;
+        left: 5%;
+        right: 5%;
+        top: 80px;
+        width: 90%;
+        box-sizing: border-box;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* По 2 товара в ряд для экономии места */
+        gap: 10px;
+    }
+
+    .product-card h4 { font-size: 14px; }
+    .img-container { height: 150px; }
 }
