@@ -114,3 +114,15 @@ document.addEventListener('DOMContentLoaded', () => {
     initCategories();
     renderProducts();
 });
+
+document.addEventListener('click', (event) => {
+    const cartDropdown = document.getElementById('cart-dropdown');
+    const cartBtn = document.querySelector('.cart-toggle');
+
+    // Проверяем, что клик был НЕ по корзине и НЕ по кнопке корзины
+    if (cartDropdown.classList.contains('active') && 
+        !cartDropdown.contains(event.target) && 
+        !cartBtn.contains(event.target)) {
+        cartDropdown.classList.remove('active');
+    }
+});
